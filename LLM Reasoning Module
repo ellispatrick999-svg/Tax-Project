@@ -1,0 +1,26 @@
+"""
+LLM Reasoning Module
+Provides structured explanations for computed solutions.
+"""
+
+from typing import Any, Optional
+
+def explain_solution(query: str, solution: Optional[Any]) -> str:
+    """
+    Generates a clear, professional explanation for a given solution.
+
+    Parameters:
+        query (str): The original problem/query.
+        solution (Any): The computed solution from the solver.
+
+    Returns:
+        str: A structured explanation.
+    """
+    if solution is None:
+        return "The problem could not be solved with the current solver. Please refine the query."
+    
+    return (
+        f"The engine detected a quadratic equation in the query: '{query}'. "
+        f"It applied symbolic computation methods to determine the solutions: {solution}."
+    )
+
