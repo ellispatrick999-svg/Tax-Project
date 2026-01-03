@@ -1,0 +1,31 @@
+math_engine/core/engine.py
+class MathEngine:
+    """
+    Math Engine AI
+
+    Coordinates symbolic math, language-model reasoning,
+    and domain-specific logic such as tax calculations.
+    """
+
+    def __init__(self):
+        self.name = "Math Engine AI"
+        self.version = "0.1.0"
+
+    def solve(self, query: str) -> dict:
+        """
+        Entry point for solving math or tax-related queries.
+
+        Parameters:
+            query (str): A math or tax question.
+
+        Returns:
+            dict: Structured response with result and explanation.
+        """
+        return {
+            "engine": self.name,
+            "version": self.version,
+            "query": query,
+            "result": "Engine initialized",
+            "explanation": "Core math engine scaffold is active."
+        }
+add core MathEngine scaffold
