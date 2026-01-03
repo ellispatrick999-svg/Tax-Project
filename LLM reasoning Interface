@@ -1,0 +1,8 @@
+def explain_solution(query: str, solution):
+    """
+    Provides a simple explanation of the solution.
+    For now, this is static; later you can plug in GPT or other LLMs.
+    """
+    if solution is None:
+        return "Sorry, I don't know how to solve this yet."
+    return f"Detected equation '{query}'. Solution computed symbolically: {solution}"
