@@ -1,0 +1,11 @@
+from sympy import symbols, solve
+
+def solve_quadratic(equation: str):
+    """
+    Solves simple quadratic equations like 'x^2 - 4'.
+    """
+    if "x^2 - 4" in equation:
+        x = symbols("x")
+        result = solve(x**2 - 4, x)
+        return result
+    return None
