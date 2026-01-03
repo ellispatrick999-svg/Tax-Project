@@ -24,3 +24,4 @@ def explain_solution(query: str, solution: Optional[Any]) -> str:
         f"It applied symbolic computation methods to determine the solutions: {solution}."
     )
 
+update professional LLM reasoning module
