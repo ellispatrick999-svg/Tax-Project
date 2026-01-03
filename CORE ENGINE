@@ -1,31 +1,43 @@
-math_engine/core/engine.py
+"""
+Core Math Engine AI
+Integrates symbolic computation, reasoning, and federal tax logic.
+"""
+
+from math_engine.sympy_engine.symbolic_solver import solve_quadratic
+from math_engine.llm.reasoning import explain_solution
+from math_engine.tax.tax_engine import calculate_federal_tax
+from typing import Any, Dict
+
 class MathEngine:
-    """
-    Math Engine AI
+    """Professional AI engine for math and federal tax assistance."""
 
-    Coordinates symbolic math, language-model reasoning,
-    and domain-specific logic such as tax calculations.
-    """
-
-    def __init__(self):
-        self.name = "Math Engine AI"
-        self.version = "0.1.0"
-
-    def solve(self, query: str) -> dict:
+    def solve_math(self, query: str) -> Dict[str, Any]:
         """
-        Entry point for solving math or tax-related queries.
+        Solves math problems and provides structured explanations.
 
         Parameters:
-            query (str): A math or tax question.
+            query (str): The math problem.
 
         Returns:
-            dict: Structured response with result and explanation.
+            dict: Contains query, result, and professional explanation.
         """
+        result = solve_quadratic(query)
+        explanation = explain_solution(query, result)
         return {
-            "engine": self.name,
-            "version": self.version,
             "query": query,
-            "result": "Engine initialized",
-            "explanation": "Core math engine scaffold is active."
+            "result": result,
+            "explanation": explanation
         }
-add core MathEngine scaffold
+
+    def calculate_tax(self, income: float, deductions: float = 0.0) -> Dict[str, Any]:
+        """
+        Estimates federal taxes based on income and deductions.
+
+        Parameters:
+            income (float): Gross income.
+            deductions (float): Deductible expenses.
+
+        Returns:
+            dict: Professional tax summary.
+        """
+        return calculate_federal_tax(income, deductions)
