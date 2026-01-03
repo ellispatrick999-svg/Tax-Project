@@ -1,0 +1,34 @@
+"""
+Federal Tax Module
+Calculates estimated federal taxes for individuals and businesses.
+This is a placeholder for demonstration purposes.
+"""
+
+from typing import Dict
+
+FEDERAL_TAX_RATE = 0.22  # Placeholder flat federal tax rate
+
+def calculate_federal_tax(income: float, deductions: float = 0.0) -> Dict[str, float]:
+    """
+    Estimates federal tax based on income and deductions.
+
+    Parameters:
+        income (float): Gross income.
+        deductions (float): Deductible expenses.
+
+    Returns:
+        dict: Contains taxable income, estimated tax, and applied rate.
+    """
+    if income < 0:
+        raise ValueError("Income must be zero or greater.")
+    
+    taxable_income = max(0.0, income - deductions)
+    tax_due = taxable_income * FEDERAL_TAX_RATE
+    
+    return {
+        "income": income,
+        "deductions": deductions,
+        "taxable_income": taxable_income,
+        "tax_due": tax_due,
+        "applied_rate": FEDERAL_TAX_RATE
+    }
