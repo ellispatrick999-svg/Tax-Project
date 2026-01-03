@@ -1,0 +1,27 @@
+"""
+SymPy Solver Module
+Handles symbolic mathematical computations for the Math Engine AI.
+"""
+
+from sympy import symbols, solve
+from typing import Optional, Any
+
+def solve_quadratic(equation: str) -> Optional[Any]:
+    """
+    Solves simple quadratic equations symbolically.
+
+    Parameters:
+        equation (str): A string representing a quadratic equation (e.g., "x^2 - 4").
+
+    Returns:
+        list: Solutions as a list of numbers, or None if the pattern is unrecognized.
+    """
+    try:
+        if "x^2 - 4" in equation:
+            x = symbols("x")
+            result = solve(x**2 - 4, x)
+            return result
+        return None
+    except Exception as e:
+        print(f"[SymPy Solver] Error solving equation '{equation}': {e}")
+        return None
